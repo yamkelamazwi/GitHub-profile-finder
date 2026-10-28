@@ -1,209 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Yamkela Mazwi is a self-taught frontend developer in South Africa building responsive, accessible web tools with HTML, CSS and JavaScript.">
-  <meta name="theme-color" content="#0e0e0e">
-  <meta property="og:title" content="Yamkela Mazwi — Frontend Developer">
-  <meta property="og:description" content="Creative frontend development, practical JavaScript projects and a growing passion for building for the web.">
-  <meta property="og:type" content="website">
-  <title>Yamkela Mazwi — Frontend Developer</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23fff705'/%3E%3Cpath d='M16 17h10l6 12 6-12h10L37 36v12H27V36z' fill='%230e0e0e'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Finder</title>
+    <meta
+      name="description"
+      content="A GitHub-inspired profile finder with repo cards, favorites, search history, and theme toggle."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-area">
+          <div class="brand-mark">◉</div>
+          <div class="title-group">
+            <h1>GitHub Profile Finder</h1>
+          </div>
+        </div>
 
-  <header class="site-header" data-header>
-    <div class="nav-shell">
-      <a class="brand" href="#top" aria-label="Yamkela Mazwi, back to top">
-        <span class="brand-mark" aria-hidden="true">Y</span>
-        <span class="brand-copy">Yamkela Mazwi<small>Frontend Developer</small></span>
-      </a>
+        <div class="header-actions">
+          <button type="button" id="random-btn" class="ghost-btn">Random</button>
+          <button type="button" id="theme-toggle" class="ghost-btn" aria-label="Toggle theme">
+            🌙
+          </button>
+        </div>
+      </header>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
-        <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-      </button>
+      <main class="main-grid">
+        <section class="content-panel">
+          <form id="search-form" class="search-form" novalidate>
+            <label class="sr-only" for="username-input">GitHub username</label>
+            <input
+              id="username-input"
+              type="text"
+              placeholder="Enter GitHub username"
+              autocomplete="off"
+            />
+            <button type="submit" class="primary-btn">Search</button>
+            <button type="button" id="clear-btn" class="secondary-btn">
+              Clear
+            </button>
+          </form>
 
-      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-github" href="https://github.com/yamkelamazwi" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-      </nav>
+          <div class="suggestions-wrap">
+            <p class="section-label">Popular profiles</p>
+            <div id="quick-suggestions" class="suggestion-list"></div>
+          </div>
+
+          <div id="results" class="results-panel" aria-live="polite"></div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="card">
+            <div class="card-header">
+              <h3>Recent search</h3>
+            </div>
+            <div id="search-history" class="chip-list empty-state-text">
+              No recent searches yet
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Favorites</h3>
+            </div>
+            <div id="favorites-list" class="favorites-list empty-state-text">
+              Save profiles you like
+            </div>
+          </div>
+        </aside>
+      </main>
     </div>
-  </header>
 
-  <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid page-shell">
-        <div class="hero-copy">
-          <p class="role-line"><span class="status-dot" aria-hidden="true"></span> Self-taught frontend developer <span class="role-location">· South Africa</span></p>
-          <h1 id="hero-title">I turn ideas into <span class="hero-highlight">interactive</span> web experiences.</h1>
-          <p class="hero-intro">I’m Yamkela Mazwi. I build practical, responsive tools with HTML, CSS and JavaScript—learning by making and improving with every project.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#work">Explore my work <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a>
-            <a class="text-link" href="https://github.com/yamkelamazwi" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-          <p class="learning-line"><span>Currently exploring</span> React · APIs · Advanced JavaScript</p>
-        </div>
-
-        <div class="hero-visual" aria-label="A code snippet introducing Yamkela as a frontend developer">
-          <div class="purple-shape" aria-hidden="true"></div>
-          <svg class="yellow-spark" viewBox="0 0 80 80" aria-hidden="true"><path d="M40 3v74M3 40h74M14 14l52 52M66 14 14 66" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>
-          <div class="code-window">
-            <div class="window-bar">
-              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <span>developer.js</span>
-              <span aria-hidden="true">•••</span>
-            </div>
-            <pre><code><span class="code-purple">const</span> developer = {
-  name: <span class="code-yellow">"Yamkela Mazwi"</span>,
-  role: <span class="code-yellow">"Frontend Developer"</span>,
-  stack: [<span class="code-yellow">"HTML"</span>, <span class="code-yellow">"CSS"</span>, <span class="code-yellow">"JS"</span>],
-  location: <span class="code-yellow">"South Africa"</span>,
-  approach: <span class="code-yellow">"Learn. Build. Improve."</span>
-};</code></pre>
-            <div class="code-footer"><span><i aria-hidden="true"></i> Building one project at a time</span><span>UTF-8</span></div>
-          </div>
-          <p class="personality-note" aria-hidden="true">Code. Create. <strong>Grow.</strong></p>
-        </div>
-      </div>
-      <div class="skill-ribbon" aria-label="Core frontend skills">
-        <div class="page-shell ribbon-inner">
-          <span>HTML5</span><i aria-hidden="true"></i><span>CSS3</span><i aria-hidden="true"></i><span>JavaScript ES6+</span><i aria-hidden="true"></i><span>Responsive Design</span><i aria-hidden="true"></i><span>Accessibility</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="work-section" id="work" aria-labelledby="work-title">
-      <div class="page-shell">
-        <div class="section-heading">
-          <p class="section-label">Selected work</p>
-          <div>
-            <h2 id="work-title">Practical tools.<br>Real frontend practice.</h2>
-            <p>A growing collection of interactive projects built to deepen my JavaScript knowledge and turn technical concepts into usable experiences.</p>
-          </div>
-        </div>
-
-        <div class="work-explorer">
-          <div class="project-list" role="tablist" aria-label="Choose a featured project" aria-orientation="vertical">
-            <button class="project-tab is-active" id="tab-github-finder" type="button" role="tab" aria-selected="true" aria-controls="project-panel" tabindex="0" data-project="github-finder">
-              <span class="project-number" aria-hidden="true">01</span>
-              <span class="project-tab-copy"><strong>GitHub Profile Finder</strong><small>JavaScript · GitHub API</small></span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-            </button>
-
-            <button class="project-tab" id="tab-regex" type="button" role="tab" aria-selected="false" aria-controls="project-panel" tabindex="-1" data-project="regex">
-              <span class="project-number" aria-hidden="true">02</span>
-              <span class="project-tab-copy"><strong>Regex Sandbox</strong><small>JavaScript · Regular expressions</small></span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-            </button>
-
-            <button class="project-tab" id="tab-markdown" type="button" role="tab" aria-selected="false" aria-controls="project-panel" tabindex="-1" data-project="markdown">
-              <span class="project-number" aria-hidden="true">03</span>
-              <span class="project-tab-copy"><strong>Markdown Converter</strong><small>JavaScript · String processing</small></span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-            </button>
-
-            <p class="project-list-note">Select a project to preview the interface and explore the code.</p>
-          </div>
-
-          <article class="project-panel" id="project-panel" role="tabpanel" aria-labelledby="tab-regex" tabindex="0">
-            <div class="browser-preview">
-              <div class="browser-bar">
-                <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                <span class="browser-address" id="browser-address">yamkelamazwi.github.io/regex-sandbox/</span>
-                <span class="browser-status"><i aria-hidden="true"></i> Live project</span>
-              </div>
-              <div class="screenshot-wrap">
-                <img class="project-screenshot is-active" src="" data-screenshot="github-finder" width="1440" height="900" alt="GitHub Profile Finder preview showing profile card, stats and repo list">
-                <img class="project-screenshot" src="" data-screenshot="regex" width="1440" height="900" alt="Regex Sandbox interface with pattern input, test string and results panels" aria-hidden="true">
-                <img class="project-screenshot" src="" data-screenshot="markdown" width="1440" height="900" alt="Markdown to HTML Converter with input, raw HTML output and live preview panels" aria-hidden="true">
-              </div>
-            </div>
-
-            <div class="project-details">
-              <div class="project-summary">
-                <p class="project-kicker" id="project-kicker">GitHub API integration</p>
-                <h3 id="project-title">GitHub Profile Finder</h3>
-                <p id="project-description">A responsive GitHub profile search app that lets users look up any GitHub username and view profile details, public stats, and recent repositories using the GitHub API.</p>
-              </div>
-              <div class="project-meta">
-                <ul class="feature-list" id="project-features" aria-label="Project features">
-                  <li>Search by username</li>
-                  <li>Profile statistics</li>
-                  <li>Recent repositories</li>
-                  <li>Favorites and history</li>
-                  <li>Mobile-first responsive layout</li>
-                </ul>
-
-                <ul class="stack-list" id="project-stack" aria-label="Technologies used">
-                  <li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub API</li><li>Responsive UI</li>
-                </ul>
-
-                <div class="project-links">
-                  <a class="button button-primary" id="live-link" href="https://yamkelamazwi.github.io/GitHub-profile-finder/" target="_blank" rel="noopener noreferrer">Open live demo <span aria-hidden="true">↗</span></a>
-                  <a class="text-link" id="source-link" href="https://github.com/yamkelamazwi/GitHub-profile-finder" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section" id="about" aria-labelledby="about-title">
-      <div class="page-shell about-grid">
-        <div class="about-heading">
-          <p class="section-label">A little about me</p>
-          <h2 id="about-title">Curious mind.<br>Creative energy.<br><span>Bigger goals.</span></h2>
-        </div>
-        <div class="about-content">
-          <p class="about-lead">I’m a self-taught developer who learns best by building. I enjoy the point where logic meets design—where a technical idea becomes something clear, useful and enjoyable to interact with.</p>
-          <p>I’m particularly interested in interactive tools, regular expressions and text processing. Alongside strengthening my JavaScript foundations, I’m focused on building practical projects, improving my problem-solving skills and creating responsive user experiences that feel intuitive to use.</p>
-          <div class="principles" aria-label="How I approach development">
-            <div><span>01</span><strong>Learn by making</strong><p>Projects turn new concepts into practical understanding.</p></div>
-            <div><span>02</span><strong>Build for people</strong><p>Responsive layouts and accessible interactions matter.</p></div>
-            <div><span>03</span><strong>Keep improving</strong><p>Every project is a chance to refine how I think and build.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="page-shell contact-grid">
-        <div>
-          <p class="section-label">Let’s connect</p>
-          <h2 id="contact-title">Have an idea?<br>Let’s talk.</h2>
-        </div>
-        <div class="contact-content">
-          <p>Interested in working together or discussing frontend opportunities? I’d be happy to hear from you.</p>
-          <div class="contact-actions">
-            <a class="button button-primary" href="mailto:urbantoney@gmail.com">Send me an email <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a>
-            <a class="contact-email" href="mailto:urbantoney@gmail.com">urbantoney@gmail.com</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="page-shell footer-inner">
-      <p><strong>Yamkela Mazwi</strong><span>Frontend Developer · South Africa</span></p>
-      <div class="footer-links">
-        <a href="https://github.com/yamkelamazwi" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="#top">Back to top ↑</a>
-      </div>
-      <p class="copyright">Designed &amp; built with curiosity · <span id="year">2026</span></p>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
