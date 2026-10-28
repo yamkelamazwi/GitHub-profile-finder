@@ -3,122 +3,111 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![GitHub API](https://img.shields.io/badge/GitHub%20API-181717?style=for-the-badge&logo=github&logoColor=white)
-![Responsive Design](https://img.shields.io/badge/Responsive%20Design-0EA5E9?style=for-the-badge)
+![GitHub API](https://img.shields.io/badge/GitHub_API-181717?style=for-the-badge&logo=github&logoColor=white)
+![Responsive](https://img.shields.io/badge/Responsive-Mobile--First-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-blue?style=for-the-badge)
 
-A lightweight web application that allows users to search for GitHub profiles and view key account information using the GitHub REST API.
+A responsive GitHub Profile Finder that allows users to search for GitHub profiles and view real-time account information using the GitHub API.
+
+---
 
 ## 🚀 Live Demo
 
-*Add live demo link here when deployed*
+🔗 https://yamkelamazwi.github.io/GitHub-profile-finder/
 
-## 📖 Description
+---
 
-GitHub Profile Finder lets users search for any GitHub username and instantly view profile information without leaving the page.
+## 📂 Source Code
 
-The application fetches real-time data from the GitHub API and dynamically displays profile details, including avatar, bio, location, follower statistics, and repository count.
+💻 https://github.com/yamkelamazwi/GitHub-profile-finder
 
-## ✨ Features
+---
 
-- Search for any GitHub user
-- Display profile avatar
-- View username and display name
-- View profile bio
-- View location information
-- Display follower and following counts
-- Display public repository count
-- Direct link to the GitHub profile
-- Input validation
-- User-friendly error handling
-- Handles missing profile information gracefully
+## 📸 Features
 
-## 🛠 Technologies Used
+✅ Search GitHub users by username
+
+✅ Display profile picture
+
+✅ Display name and username
+
+✅ Display bio
+
+✅ Display location
+
+✅ Display account creation date
+
+✅ View followers, following and repository statistics
+
+✅ Display latest repositories
+
+✅ Direct link to GitHub profile
+
+✅ Loading state
+
+✅ Error handling
+
+✅ Clear results button
+
+✅ Mobile-first responsive design
+
+✅ GitHub-inspired dark UI
+
+---
+
+## 🛠 Built With
 
 - HTML5
 - CSS3
 - JavaScript (ES6+)
 - Fetch API
-- Async / Await
 - GitHub REST API
-
-## 📚 Concepts Practiced
-
-This project helped reinforce:
-
-- DOM Manipulation
-- Event Handling
-- Form Submission
-- Template Literals
-- Async JavaScript
-- API Consumption
-- JSON Data Handling
-- Conditional Rendering
-- Error Handling
-
-## 🎯 Future Improvements
-
-- Display user repositories
-- Add repository sorting
-- Display most recent repositories
-- Search history
-- Loading spinner
-- Dark/Light theme toggle
-- Responsive card layout improvements
-- Repository language statistics
-
-## 📷 Example Information Displayed
-
-```text
-Results for: yamkelamazwi
-
-Yamkela Mazwi
-@yamkelamazwi
-
-Frontend Developer building interactive JavaScript applications...
-
-📍 South Africa Cape Town
-
-Followers: 0
-Following: 0
-Public Repositories: 13
-```
-
-## 📂 Installation
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/yamkelamazwi/github-profile-finder.git
-```
-
-2. Navigate into the project directory
-
-```bash
-cd github-profile-finder
-```
-
-3. Open `index.html` in your browser
-
-## 🧠 What I Learned
-
-Building this project improved my understanding of:
-
-- Working with APIs
-- Fetching external data
-- Async/Await
-- Dynamic content rendering
-- JavaScript object properties
-- User input validation
-- Handling successful and failed API requests
-
-## 👨‍💻 Author
-
-**Yamkela Mazwi**
-
-GitHub: https://github.com/yamkelamazwi
-
-Portfolio: https://yamkelamazwi.github.io/Yamkela-Mazwi-Frontend-Developer/
 
 ---
 
-> Learn. Build. Improve.
+## 📁 Project Structure
+
+```text
+GitHub-profile-finder/
+│
+├── index.html
+├── styles.css
+├── script.js
+└── README.md
+```
+
+---
+
+## 🔍 How It Works
+
+1. Enter a GitHub username.
+2. Click Search.
+3. The application sends a request to the GitHub API.
+4. Profile information is retrieved and displayed.
+5. The latest repositories are fetched and displayed dynamically.
+
+---
+
+## 🧠 Skills Demonstrated
+
+- DOM Manipulation
+- Event Handling
+- Async / Await
+- JavaScript Fetch API
+- REST API Integration
+- Error Handling
+- Dynamic Content Rendering
+- Responsive Web Design
+- Array Methods (`map`, `sort`, `slice`)
+- Modern JavaScript (ES6+)
+
+---
+
+## 🎯 Future Improvements
+
+- Repository descriptions
+- Language tags
+- Star counts
+- Fork counts
+- Search history
+- Dark / Light theme
