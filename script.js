@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const results = document.querySelector("#results");
+const clearButton = document.querySelector("#clear-btn");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -80,3 +81,8 @@ form.addEventListener("submit", async (event) => {
   input.value = "";
 });
 
+clearButton.addEventListener("click", () => {
+  input.value = "";
+  results.innerHTML = "";
+  input.focus();
+});
