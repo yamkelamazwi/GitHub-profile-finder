@@ -72,8 +72,8 @@ function bindEvents() {
   });
 
   themeToggle.addEventListener("click", () => {
-    const isDark = document.body.classList.contains("light-theme");
-    document.body.classList.toggle("light-theme", !isDark);
+    const isLight = document.body.classList.contains("light-theme");
+    document.body.classList.toggle("light-theme", !isLight);
 
     const nextTheme = document.body.classList.contains("light-theme") ? "light" : "dark";
     localStorage.setItem(STORAGE_KEYS.theme, nextTheme);
@@ -247,7 +247,7 @@ function renderProfile(user, repos) {
                     `
                   )
                   .join("")
-              : '<span class="empty-state">No language data available</span>'
+              : '<span class="empty-state-text">No language data available</span>'
           }
         </div>
       </div>
@@ -299,7 +299,7 @@ function renderRepos(repos, filter) {
   });
 
   if (!filteredRepos.length) {
-    return '<div class="empty-state">No public repositories found.</div>';
+    return '<div class="empty-state-text">No public repositories found.</div>';
   }
 
   return filteredRepos
