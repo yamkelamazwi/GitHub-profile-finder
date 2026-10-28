@@ -8,24 +8,43 @@ form.addEventListener("submit", async (event) => {
   const username = input.value.trim();
 
   if (!username) {
-  results.textContent = "Please enter a username";
-  return;
-}
+    results.textContent = "Please enter a username";
+    return;
+  }
 
   results.textContent = "Loading...";
 
   const response = await fetch(`https://api.github.com/users/${username}`);
 
   if (!response.ok) {
-  results.textContent = `No GitHub user found for "${username}"`;
-  return;
-}
+    results.textContent = `No GitHub user found for "${username}"`;
+    return;
+  }
 
   const data = await response.json();
 
-  results.innerHTML = `
-  <p>Results for: <strong>${username}</strong></p>
+  const reposResponse = await fetch(data.repos_url);
+  const repos = await reposResponse.json();
 
+  const repoList = repos
+    .sort(
+      (a, b) =>
+        new Date(b.updated_at) - new Date(a.updated_at)
+    )
+    .slice(0, 5)
+    .map(
+      (repo) => `
+        <li>
+          <a href="${repo.html_url}" target="_blank">
+            ${repo.name}
+          </a>
+        </li>
+      `
+    )
+    .join("");
+
+  results.innerHTML = `
+  
   <img
     src="${data.avatar_url}"
     alt="${data.login}'s profile picture"
@@ -38,6 +57,9 @@ form.addEventListener("submit", async (event) => {
 
   <p>📍 ${data.location || "Location not provided"}</p>
 
+  <p>Joined:
+  ${new Date(data.created_at).toLocaleDateString()}</p>
+
   <ul>
     <li>Followers: ${data.followers}</li>
     <li>Following: ${data.following}</li>
@@ -47,8 +69,14 @@ form.addEventListener("submit", async (event) => {
   <a href="${data.html_url}" target="_blank">
     View GitHub Profile
   </a>
+
+  <h3>Latest Repositories</h3>
+
+  <ul>
+    ${repoList || "<li>No repositories found</li>"}
+  </ul>
 `;
 
   input.value = "";
-
 });
+
