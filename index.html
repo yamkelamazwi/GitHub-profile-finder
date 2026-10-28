@@ -4,25 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GitHub Profile Finder</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◉</span>
+        <h1>GitHub Profile Finder</h1>
+      </div>
+    </header>
 
-  <main>
-    <h1>GitHub Profile Finder</h1>
+    <section class="search-panel">
+      <form class="search-form">
+        <label class="sr-only" for="github-user">GitHub username</label>
+        <input
+          id="github-user"
+          type="text"
+          placeholder="Enter GitHub username"
+          aria-label="GitHub username"
+        />
+        <button type="submit">Search</button>
+        <button type="button" id="clear-btn" class="secondary-btn">
+          Clear
+        </button>
+      </form>
+    </section>
 
-    <form>
-      <input
-        type="text"
-        placeholder="Enter GitHub username"
-      />
-      <button type="submit">Search</button>
-      <button type="button" id="clear-btn">
-    Clear
-  </button>
-    </form>
-
-    <div id="results"></div>
+    <div id="results" aria-live="polite"></div>
   </main>
 
   <script src="script.js"></script>
