@@ -111,6 +111,7 @@ a:hover {
 .title-group {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.1rem;
   min-width: 0;
 }
@@ -121,6 +122,17 @@ h1 {
   line-height: 1.15;
   white-space: normal;
   word-break: break-word;
+}
+
+.built-by {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.author-name {
+  color: var(--blue);
+  font-weight: 700;
 }
 
 .header-actions {
