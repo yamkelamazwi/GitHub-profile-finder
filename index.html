@@ -1,39 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GitHub Profile Finder</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="page-shell">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-mark">◉</span>
-        <h1>GitHub Profile Finder</h1>
-      </div>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Finder</title>
+    <meta
+      name="description"
+      content="GitHub-inspired profile finder with repo cards, favorites, search history, and theme toggle."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-area">
+          <div class="brand-mark">◉</div>
 
-    <section class="search-panel">
-      <form class="search-form">
-        <label class="sr-only" for="github-user">GitHub username</label>
-        <input
-          id="github-user"
-          type="text"
-          placeholder="Enter GitHub username"
-          aria-label="GitHub username"
-        />
-        <button type="submit">Search</button>
-        <button type="button" id="clear-btn" class="secondary-btn">
-          Clear
-        </button>
-      </form>
-    </section>
+          <div class="title-group">
+            <h1>GitHub Profile Finder</h1>
+            <p class="built-by">
+  Built by
+  <span class="author-name">Yamkela Mazwi</span>
+</p>
+          </div>
+        </div>
 
-    <div id="results" aria-live="polite"></div>
-  </main>
+        <div class="header-actions">
+          <button type="button" id="random-btn" class="ghost-btn">
+            Random
+          </button>
+          <button type="button" id="theme-toggle" class="ghost-btn" aria-label="Toggle theme">
+            🌙
+          </button>
+        </div>
+      </header>
 
-  <script src="script.js"></script>
-</body>
+      <main class="main-grid">
+        <section class="content-panel">
+          <form id="search-form" class="search-form" novalidate>
+            <label class="sr-only" for="username-input">GitHub username</label>
+            <input
+              id="username-input"
+              type="text"
+              placeholder="Enter GitHub username"
+              autocomplete="off"
+            />
+            <button type="submit" class="primary-btn">Search</button>
+            <button type="button" id="clear-btn" class="secondary-btn">
+              Clear
+            </button>
+          </form>
+
+          <div class="suggestions-wrap">
+            <p class="section-label">Popular profiles</p>
+            <div id="quick-suggestions" class="suggestion-list"></div>
+          </div>
+
+          <div id="results" class="results-panel" aria-live="polite"></div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="card">
+            <div class="card-header">
+              <h3>Recent search</h3>
+            </div>
+            <div id="search-history" class="chip-list empty-state-text">
+              No recent searches yet
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Favorites</h3>
+            </div>
+            <div id="favorites-list" class="favorites-list empty-state-text">
+              Save profiles you like
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
