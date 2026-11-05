@@ -54,6 +54,11 @@ A responsive GitHub Profile Finder that allows users to search for GitHub profil
 ✅ GitHub-inspired dark UI
 
 ---
+## 📸 Screenshot
+
+<p align="center">
+  <img src="./Screenshot 2026-11-05 182629.png" alt="GitHub profile Finder Screenshot" width="800">
+</p>
 
 ## 🛠 Built With
 
